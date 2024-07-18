@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools == 70.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'currency_rate_bot'
+version = '1.0.0'
+readme = 'README.md'
+license = { file = 'LICENSE' }
+requires-python = '~=3.11'
+maintainers = [
+    { name = "Ivan Kirpichnikov", email = "mmssvvvv570@gmail.com" }
+]
+dependencies = [
+    'redis==5.0.7',
+    'aiogram==3.8.0',
+    'adaptix==3.0.0b7',
+]
+
+[project.scripts]
+bot-cli = 'bot.cli:main'
+currency-rate-cli = 'currency_rate.cli:main'
+
+[project.optional-dependencies]
+dev = [
+    'mypy==1.10.1',
+    'ruff==0.5.3',
+]
+
+[tool.mypy]
+show_absolute_path = true
+
+[tool.ruff]
+line-length = 100
+target-version = 'py311'
+
+[tool.ruff.format]
+quote-style = 'single'

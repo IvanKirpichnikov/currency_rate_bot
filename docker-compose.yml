@@ -1,0 +1,20 @@
+services:
+  bot:
+    image: bot
+    volumes:
+      - ./bot.toml:/app/bot.toml:ro
+
+  currency_rate:
+    image: currency_rate
+    volumes:
+      - ./currency_rate.toml:/app/currency_rate.toml:ro
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_volume:/data
+
+volumes:
+  redis_volume:
